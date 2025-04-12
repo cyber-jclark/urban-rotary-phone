@@ -5,7 +5,7 @@ import time
 
 GITHUB_TOKEN = os.getenv("TOKEN")
 
-if not TOKEN:
+if not GITHUB_TOKEN:
     raise Exception("Missing GITHUB_TOKEN environment variable")
 
 HEADERS = {
