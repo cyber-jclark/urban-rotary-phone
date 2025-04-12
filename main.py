@@ -3,7 +3,7 @@ import os
 import requests
 import time
 
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+GITHUB_TOKEN = "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"
 
 if not GITHUB_TOKEN:
     raise Exception("Missing GITHUB_TOKEN environment variable")
