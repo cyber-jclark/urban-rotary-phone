@@ -1,0 +1,28 @@
+name: Wakeup GitHub Codespace
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"  # every 15 minutes
+  workflow_dispatch:
+
+jobs:
+  wakeup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install requests
+
+      - name: Run wakeup script
+        env:
+          GITHUB_TOKEN: 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
+        run: |
+          python main.py
