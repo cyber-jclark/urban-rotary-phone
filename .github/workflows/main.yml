@@ -1,13 +1,14 @@
-name: Wakeup GitHub Codespace
+name: Run Script Every 5 Minutes
 
 on:
   schedule:
-    - cron: "*/15 * * * *"  # every 15 minutes
-  workflow_dispatch:
+    - cron: "*/5 * * * *" # every 5 minutes
+  workflow_dispatch: # allows manual trigger too
 
 jobs:
-  wakeup:
+  run-script:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -18,11 +19,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
-        run: |
-          pip install requests
+        run: pip install requests
 
-      - name: Run wakeup script
-        env:
-          GITHUB_TOKEN: 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
-        run: |
-          python main.py
+      - name: Run script
+        run: python main.py
