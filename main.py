@@ -3,9 +3,9 @@ import os
 import requests
 import time
 
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+GITHUB_TOKEN = os.getenv("TOKEN")
 
-if not GITHUB_TOKEN:
+if not TOKEN:
     raise Exception("Missing GITHUB_TOKEN environment variable")
 
 HEADERS = {
